@@ -1,2 +1,13 @@
 <h1> Results </h1>
-<p>Sorry but TEST cant be buid out of the ARRAY</p>
+
+<% if @included %>
+  <% if @english_word %>
+    <p><strong>Congratulations!</strong> <%= @words %> is a valid English word!</p>
+  <% else %>
+    <p>Sorry but <strong><%= @words %></strong> does not seem to be a valid English word...</p>
+  <% end %>
+<% else %>
+  <p>Sorry but <strong><%= @words %></strong> can't be built out of <%= @letters.join(", ") %></p>
+<% end %>
+
+<%= link_to "Play again", new_path %>
